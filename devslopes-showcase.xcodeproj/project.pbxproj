@@ -12,6 +12,14 @@
 		10C2B0E81E73AB3C000CF39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0E61E73AB3C000CF39F /* Main.storyboard */; };
 		10C2B0EA1E73AB3C000CF39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0E91E73AB3C000CF39F /* Assets.xcassets */; };
 		10C2B0ED1E73AB3C000CF39F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0EB1E73AB3C000CF39F /* LaunchScreen.storyboard */; };
+		10C2B0FC1E73ABE2000CF39F /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0F81E73ABE2000CF39F /* NotoSans-Bold.ttf */; };
+		10C2B0FD1E73ABE2000CF39F /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0F91E73ABE2000CF39F /* NotoSans-BoldItalic.ttf */; };
+		10C2B0FE1E73ABE2000CF39F /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0FA1E73ABE2000CF39F /* NotoSans-Italic.ttf */; };
+		10C2B0FF1E73ABE2000CF39F /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0FB1E73ABE2000CF39F /* NotoSans-Regular.ttf */; };
+		10C2B1011E73AD6A000CF39F /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B1001E73AD6A000CF39F /* MaterialView.swift */; };
+		10C2B1041E73ADA6000CF39F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B1031E73ADA6000CF39F /* Constants.swift */; };
+		10C2B1061E73C48B000CF39F /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B1051E73C48B000CF39F /* MaterialButton.swift */; };
+		10C2B1081E73C678000CF39F /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B1071E73C678000CF39F /* MaterialTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		10C2B0E91E73AB3C000CF39F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10C2B0EC1E73AB3C000CF39F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10C2B0EE1E73AB3C000CF39F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C2B0F81E73ABE2000CF39F /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		10C2B0F91E73ABE2000CF39F /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		10C2B0FA1E73ABE2000CF39F /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		10C2B0FB1E73ABE2000CF39F /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		10C2B1001E73AD6A000CF39F /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		10C2B1031E73ADA6000CF39F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		10C2B1051E73C48B000CF39F /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		10C2B1071E73C678000CF39F /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,11 @@
 		10C2B0E11E73AB3C000CF39F /* devslopes-showcase */ = {
 			isa = PBXGroup;
 			children = (
+				10C2B1021E73AD9D000CF39F /* Utilities */,
+				10C2B0F71E73AB60000CF39F /* Resources */,
+				10C2B0F61E73AB53000CF39F /* Model */,
+				10C2B0F51E73AB50000CF39F /* View */,
+				10C2B0F41E73AB4B000CF39F /* Controller */,
 				10C2B0E21E73AB3C000CF39F /* AppDelegate.swift */,
 				10C2B0E41E73AB3C000CF39F /* ViewController.swift */,
 				10C2B0E61E73AB3C000CF39F /* Main.storyboard */,
@@ -62,6 +83,49 @@
 				10C2B0EE1E73AB3C000CF39F /* Info.plist */,
 			);
 			path = "devslopes-showcase";
+			sourceTree = "<group>";
+		};
+		10C2B0F41E73AB4B000CF39F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		10C2B0F51E73AB50000CF39F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				10C2B1001E73AD6A000CF39F /* MaterialView.swift */,
+				10C2B1051E73C48B000CF39F /* MaterialButton.swift */,
+				10C2B1071E73C678000CF39F /* MaterialTextField.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		10C2B0F61E73AB53000CF39F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		10C2B0F71E73AB60000CF39F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				10C2B0F81E73ABE2000CF39F /* NotoSans-Bold.ttf */,
+				10C2B0F91E73ABE2000CF39F /* NotoSans-BoldItalic.ttf */,
+				10C2B0FA1E73ABE2000CF39F /* NotoSans-Italic.ttf */,
+				10C2B0FB1E73ABE2000CF39F /* NotoSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		10C2B1021E73AD9D000CF39F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				10C2B1031E73ADA6000CF39F /* Constants.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +187,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10C2B0FC1E73ABE2000CF39F /* NotoSans-Bold.ttf in Resources */,
 				10C2B0ED1E73AB3C000CF39F /* LaunchScreen.storyboard in Resources */,
+				10C2B0FD1E73ABE2000CF39F /* NotoSans-BoldItalic.ttf in Resources */,
+				10C2B0FE1E73ABE2000CF39F /* NotoSans-Italic.ttf in Resources */,
 				10C2B0EA1E73AB3C000CF39F /* Assets.xcassets in Resources */,
 				10C2B0E81E73AB3C000CF39F /* Main.storyboard in Resources */,
+				10C2B0FF1E73ABE2000CF39F /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,8 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10C2B1081E73C678000CF39F /* MaterialTextField.swift in Sources */,
+				10C2B1011E73AD6A000CF39F /* MaterialView.swift in Sources */,
 				10C2B0E51E73AB3C000CF39F /* ViewController.swift in Sources */,
 				10C2B0E31E73AB3C000CF39F /* AppDelegate.swift in Sources */,
+				10C2B1041E73ADA6000CF39F /* Constants.swift in Sources */,
+				10C2B1061E73C48B000CF39F /* MaterialButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
