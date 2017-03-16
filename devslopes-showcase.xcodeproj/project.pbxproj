@@ -23,6 +23,8 @@
 		10C2B11A1E7A0A2A000CF39F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C2B1171E7A0A2A000CF39F /* Bolts.framework */; };
 		10C2B11B1E7A0A2A000CF39F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C2B1181E7A0A2A000CF39F /* FBSDKCoreKit.framework */; };
 		10C2B11C1E7A0A2A000CF39F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C2B1191E7A0A2A000CF39F /* FBSDKLoginKit.framework */; };
+		10C2B11F1E7A2010000CF39F /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B11E1E7A2010000CF39F /* DataService.swift */; };
+		10C2B1211E7A207D000CF39F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B1201E7A207D000CF39F /* GoogleService-Info.plist */; };
 		E5CE2E056F6326A1C17BE69A /* Pods_devslopes_showcase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 629BA958DCF6212774761A81 /* Pods_devslopes_showcase.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		10C2B1171E7A0A2A000CF39F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		10C2B1181E7A0A2A000CF39F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		10C2B1191E7A0A2A000CF39F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		10C2B11E1E7A2010000CF39F /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		10C2B1201E7A207D000CF39F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1288EC9BC1E2595808E9AF85 /* Pods-devslopes-showcase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devslopes-showcase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-devslopes-showcase/Pods-devslopes-showcase.debug.xcconfig"; sourceTree = "<group>"; };
 		629BA958DCF6212774761A81 /* Pods_devslopes_showcase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_devslopes_showcase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB9922B611EB56CD37CE57C /* Pods-devslopes-showcase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devslopes-showcase.release.xcconfig"; path = "Pods/Target Support Files/Pods-devslopes-showcase/Pods-devslopes-showcase.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		10C2B0E11E73AB3C000CF39F /* devslopes-showcase */ = {
 			isa = PBXGroup;
 			children = (
+				10C2B11D1E7A1FFF000CF39F /* Services */,
 				10C2B1161E7A0A13000CF39F /* Frameworks */,
 				10C2B1021E73AD9D000CF39F /* Utilities */,
 				10C2B0F71E73AB60000CF39F /* Resources */,
@@ -97,6 +102,7 @@
 				10C2B0E61E73AB3C000CF39F /* Main.storyboard */,
 				10C2B0E91E73AB3C000CF39F /* Assets.xcassets */,
 				10C2B0EB1E73AB3C000CF39F /* LaunchScreen.storyboard */,
+				10C2B1201E7A207D000CF39F /* GoogleService-Info.plist */,
 				10C2B0EE1E73AB3C000CF39F /* Info.plist */,
 			);
 			path = "devslopes-showcase";
@@ -153,6 +159,14 @@
 				10C2B1191E7A0A2A000CF39F /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		10C2B11D1E7A1FFF000CF39F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				10C2B11E1E7A2010000CF39F /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		634859DC2FBEAB50433AFEC5 /* Frameworks */ = {
@@ -235,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C2B0FC1E73ABE2000CF39F /* NotoSans-Bold.ttf in Resources */,
+				10C2B1211E7A207D000CF39F /* GoogleService-Info.plist in Resources */,
 				10C2B0ED1E73AB3C000CF39F /* LaunchScreen.storyboard in Resources */,
 				10C2B0FD1E73ABE2000CF39F /* NotoSans-BoldItalic.ttf in Resources */,
 				10C2B0FE1E73ABE2000CF39F /* NotoSans-Italic.ttf in Resources */,
@@ -300,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C2B1081E73C678000CF39F /* MaterialTextField.swift in Sources */,
+				10C2B11F1E7A2010000CF39F /* DataService.swift in Sources */,
 				10C2B1011E73AD6A000CF39F /* MaterialView.swift in Sources */,
 				10C2B0E51E73AB3C000CF39F /* ViewController.swift in Sources */,
 				10C2B0E31E73AB3C000CF39F /* AppDelegate.swift in Sources */,
@@ -476,6 +492,7 @@
 				10C2B0F31E73AB3C000CF39F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

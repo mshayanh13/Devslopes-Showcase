@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In / Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1g-0R-U18">
-                                        <rect key="frame" x="20" y="35" width="151" height="20"/>
+                                        <rect key="frame" x="20" y="35" width="151" height="23.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="151" id="Yiq-Ni-7xD"/>
                                         </constraints>
@@ -69,7 +69,7 @@
                                                 <rect key="frame" x="0.0" y="21.5" width="65" height="65"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMg-gv-z1I" customClass="MaterialButton" customModule="devslopes_showcase" customModuleProvider="target">
-                                                <rect key="frame" x="105" y="39" width="143" height="30"/>
+                                                <rect key="frame" x="105" y="37.5" width="143" height="33"/>
                                                 <color key="backgroundColor" red="0.11764705882352941" green="0.53333333333333333" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                 <state key="normal" title="FACEBOOK LOGIN">
@@ -122,7 +122,7 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-FS-Mzn" customClass="MaterialButton" customModule="devslopes_showcase" customModuleProvider="target">
                                         <rect key="frame" x="46" y="204" width="196" height="33"/>
@@ -135,6 +135,9 @@
                                         <state key="normal" title="Login / Signup">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="attemptLoginWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YeO-xb-IxM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -166,10 +169,33 @@
                             <constraint firstItem="mFH-OD-oKx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vwf-16-kNY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="DmO-N0-7eb" id="2bD-pG-cvj"/>
+                        <outlet property="passwordField" destination="2bl-6b-eA6" id="vGc-6s-wTy"/>
+                        <segue destination="lQf-gw-OXK" kind="show" identifier="loggedIn" id="Gae-l9-JZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="136.28185907046478"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Whu-Ru-bEq">
+            <objects>
+                <viewController id="lQf-gw-OXK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aaI-3z-aBF"/>
+                        <viewControllerLayoutGuide type="bottom" id="MXL-Zf-RSw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uyu-f9-Cgi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Nj-dt-PtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="136"/>
         </scene>
     </scenes>
     <resources>
