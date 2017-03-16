@@ -120,6 +120,8 @@ class ViewController: UIViewController {
                     
                 } else {
                     
+                    UserDefaults.standard.set(user?.uid, forKey: KEY_UID)
+                    
                     self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
                     
                 }
