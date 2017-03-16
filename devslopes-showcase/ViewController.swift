@@ -58,14 +58,14 @@ class ViewController: UIViewController {
                             
                             print("Login failed. \(error)")
                             
-                        } else {
+                        } else if let user = user {
                             
                             print("Logged in. \(user)")
                             
-                            //let userData = ["provider": credential.provider]
-                            //DataService.ds.createFirebaseUser(user.uid, userData)
+                            let userData = ["provider": credential.provider, "blah": "test"]
+                            DataService.ds.createFirebaseUser(uid: user.uid, user: userData)
                             
-                            UserDefaults.standard.set(user?.uid, forKey: KEY_UID)
+                            UserDefaults.standard.set(user.uid, forKey: KEY_UID)
                             self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
                             
                         }
@@ -93,18 +93,26 @@ class ViewController: UIViewController {
                         
                         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, createUserError) in
                             
-                            if createUserError != nil {
+                            if let createUserError = createUserError as? NSError {
                                 
                                 print(createUserError.debugDescription)
                                 
-                                self.showErrorAlert(title: "Could not create account", message: "Problem creating the account. Try something else")
+                                var reason = "Problem creating the account. Try something else"
                                 
-                            } else {
+                                if let failureReason = createUserError.localizedFailureReason {
+                                    
+                                    reason = failureReason
+                                    
+                                }
                                 
-                                UserDefaults.standard.set(user?.uid, forKey: KEY_UID)
+                                self.showErrorAlert(title: "Could not create account", message: reason)
                                 
-                                //let userData = ["provider": "email"]
-                                //DataService.ds.createFirebaseUser(user.uid, userData)
+                            } else if let user = user {
+                                
+                                UserDefaults.standard.set(user.uid, forKey: KEY_UID)
+                                
+                                let userData = ["provider": "email", "blah":"emailtest"]
+                                DataService.ds.createFirebaseUser(uid: user.uid, user: userData)
                                 
                                 self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
                                 
