@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In / Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1g-0R-U18">
-                                        <rect key="frame" x="20" y="35" width="151" height="23.5"/>
+                                        <rect key="frame" x="20" y="35" width="151" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="151" id="Yiq-Ni-7xD"/>
                                         </constraints>
@@ -69,12 +69,15 @@
                                                 <rect key="frame" x="0.0" y="21.5" width="65" height="65"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMg-gv-z1I" customClass="MaterialButton" customModule="devslopes_showcase" customModuleProvider="target">
-                                                <rect key="frame" x="105" y="37.5" width="143" height="33"/>
+                                                <rect key="frame" x="105" y="39" width="143" height="30"/>
                                                 <color key="backgroundColor" red="0.11764705882352941" green="0.53333333333333333" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="15"/>
                                                 <state key="normal" title="FACEBOOK LOGIN">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="fbButtonPressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DnA-Hi-7Ya"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
