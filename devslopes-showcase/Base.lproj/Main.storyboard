@@ -191,11 +191,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWm-Gp-X6H" customClass="MaterialView" customModule="devslopes_showcase" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="288" height="53"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cSw-uD-9wK">
+                                        <rect key="frame" x="8" y="8" width="272" height="37"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Talk about your app" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCj-d2-5bz" customClass="MaterialTextField" customModule="devslopes_showcase" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="165" height="37"/>
+                                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="BRI-lo-8g2">
+                                                <rect key="frame" x="175" y="0.0" width="37" height="37"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="LOK-OL-Wau"/>
+                                                    <constraint firstAttribute="width" constant="37" id="jWB-hh-acb"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="IVc-SU-H2d" appends="YES" id="eoC-hS-Nj2"/>
+                                                </connections>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpb-xL-3fd" customClass="MaterialButton" customModule="devslopes_showcase" customModuleProvider="target">
+                                                <rect key="frame" x="222" y="0.0" width="50" height="37"/>
+                                                <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="KBP-Sh-FdV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                                <state key="normal" title="POST">
+                                                    <color key="titleColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="makePost:" destination="lQf-gw-OXK" eventType="touchUpInside" id="d4x-DU-SnF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cSw-uD-9wK" firstAttribute="top" secondItem="GWm-Gp-X6H" secondAttribute="topMargin" id="3OY-He-obv"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="cSw-uD-9wK" secondAttribute="trailing" id="7HY-qD-XYd"/>
+                                    <constraint firstItem="cSw-uD-9wK" firstAttribute="leading" secondItem="GWm-Gp-X6H" secondAttribute="leadingMargin" id="BpU-Qo-cne"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="cSw-uD-9wK" secondAttribute="bottom" id="LpZ-Wh-Kdb"/>
+                                    <constraint firstAttribute="height" constant="53" id="nqC-fF-cw0"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="317" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XNj-6R-gmF">
-                                <rect key="frame" x="16" y="64" width="288" height="504"/>
+                                <rect key="frame" x="16" y="133" width="288" height="435"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="Ssc-Xq-Rie" customClass="PostCell" customModule="devslopes_showcase" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" id="Ssc-Xq-Rie" customClass="PostCell" customModule="devslopes_showcase" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="317"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ssc-Xq-Rie" id="xQn-ay-cNh">
@@ -298,17 +348,27 @@
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MXL-Zf-RSw" firstAttribute="top" secondItem="XNj-6R-gmF" secondAttribute="bottom" id="8s9-5X-Hgm"/>
-                            <constraint firstItem="XNj-6R-gmF" firstAttribute="top" secondItem="aaI-3z-aBF" secondAttribute="bottom" id="iBU-wQ-icj"/>
+                            <constraint firstItem="XNj-6R-gmF" firstAttribute="top" secondItem="GWm-Gp-X6H" secondAttribute="bottom" constant="8" id="H3o-RW-CnK"/>
+                            <constraint firstItem="GWm-Gp-X6H" firstAttribute="leading" secondItem="uyu-f9-Cgi" secondAttribute="leadingMargin" id="M3h-pR-i0c"/>
+                            <constraint firstItem="GWm-Gp-X6H" firstAttribute="trailing" secondItem="uyu-f9-Cgi" secondAttribute="trailingMargin" id="QcD-e2-ct9"/>
                             <constraint firstItem="XNj-6R-gmF" firstAttribute="trailing" secondItem="uyu-f9-Cgi" secondAttribute="trailingMargin" id="m42-Lc-xgH"/>
                             <constraint firstItem="XNj-6R-gmF" firstAttribute="leading" secondItem="uyu-f9-Cgi" secondAttribute="leadingMargin" id="mmm-4m-d31"/>
+                            <constraint firstItem="GWm-Gp-X6H" firstAttribute="top" secondItem="aaI-3z-aBF" secondAttribute="bottom" constant="8" id="t4B-7C-Jnn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iRv-RU-KX3"/>
                     <connections>
+                        <outlet property="imageSelectorImage" destination="BRI-lo-8g2" id="2Zb-vd-tw0"/>
+                        <outlet property="postField" destination="VCj-d2-5bz" id="Ef7-e9-49B"/>
                         <outlet property="tableView" destination="XNj-6R-gmF" id="8co-Q7-L0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Nj-dt-PtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IVc-SU-H2d">
+                    <connections>
+                        <action selector="selectImage:" destination="lQf-gw-OXK" id="F68-lz-B9u"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2086.875" y="135.21126760563379"/>
         </scene>
@@ -333,6 +393,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="50" height="50"/>
         <image name="code-icon-logo" width="318" height="281"/>
         <image name="fb-icon" width="65" height="65"/>
         <image name="heart-empty" width="150" height="147"/>

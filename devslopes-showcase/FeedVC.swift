@@ -9,15 +9,24 @@
 import UIKit
 import Firebase
 
-class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postField: MaterialTextField!
+    @IBOutlet weak var imageSelectorImage: UIImageView!
     
     var posts = [Post]()
+    
+    var imagePicker: UIImagePickerController!
+    
     static var imageCache = NSCache<AnyObject, AnyObject>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -96,4 +105,29 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            
+            imageSelectorImage.image = image
+            
+            
+        }
+        
+        imagePicker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func selectImage(_ sender: UITapGestureRecognizer) {
+        
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func makePost(_ sender: MaterialButton) {
+        
+        
+        
+    }
+    
 }
