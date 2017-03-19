@@ -12,6 +12,8 @@ import Alamofire
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    let cameraImage = UIImage(named: "camera")
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postField: MaterialTextField!
     @IBOutlet weak var imageSelectorImage: UIImageView!
@@ -129,8 +131,6 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
         
         if let txt = postField.text, txt != "" {
             
-            let cameraImage = UIImage(named: "camera")
-            
             if let img = imageSelectorImage.image, img != cameraImage {
                 
                 let urlStr = "https://post.imageshack.us/upload_api.php"
@@ -163,6 +163,8 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
                                         
                                         print("LINK: \(imgLink)")
                                         
+                                        self.postToFirebase(imgUrl: imgLink)
+                                        
                                     }
                                     
                                 }
@@ -177,9 +179,36 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
                     
                 })
                 
+            } else {
+                self.postToFirebase(imgUrl: nil)
             }
             
         }
+        
+    }
+    
+    func resetPostField() {
+        
+        imageSelectorImage.image = cameraImage
+        postField.text = ""
+        
+    }
+    
+    func postToFirebase(imgUrl: String?) {
+        
+        var post: Dictionary<String, Any> = ["description": postField.text!, "likes" : 0]
+        
+        if let imgUrl = imgUrl {
+            
+            post["imageUrl"] = imgUrl
+            
+        }
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        resetPostField()
+        
+        tableView.reloadData()
         
     }
     

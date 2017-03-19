@@ -70,5 +70,10 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Needed so you can choose a photo of your application</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

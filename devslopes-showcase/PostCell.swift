@@ -12,7 +12,7 @@ import Alamofire
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var showcaseImage: UIImageView!
+    @IBOutlet weak var showcaseImage: MaterialImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLabel: UILabel!
     
@@ -51,6 +51,10 @@ class PostCell: UITableViewCell {
                         let img = UIImage(data: response.data!)!
                         self.showcaseImage.image = img
                         FeedVC.imageCache.setObject(img, forKey: self.post.imageUrl! as AnyObject)
+                    } else {
+                        
+                        print(response.error.debugDescription)
+                        
                     }
                     
                 })

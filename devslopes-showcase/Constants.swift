@@ -12,7 +12,6 @@ import Firebase
 let SHADOW_COLOR: CGFloat = 157.0 / 255.0
 let KEY_UID = "uid"
 let API_KEY = "12DJKPSU5fc3afbd01b1630cc718cae3043220f3" //only for this course if using imageshack
-let URL_STORAGE = FIRStorage.storage().reference()
 
 //Segues
 let SEGUE_LOGGED_IN = "loggedIn"
