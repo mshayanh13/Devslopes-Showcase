@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Alamofire
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -126,7 +127,59 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
     
     @IBAction func makePost(_ sender: MaterialButton) {
         
-        
+        if let txt = postField.text, txt != "" {
+            
+            let cameraImage = UIImage(named: "camera")
+            
+            if let img = imageSelectorImage.image, img != cameraImage {
+                
+                let urlStr = "https://post.imageshack.us/upload_api.php"
+                let url = URL(string: urlStr)!
+                let imgData = UIImageJPEGRepresentation(img, 0.2)!
+                let keyData = API_KEY.data(using: String.Encoding.utf8)!
+                let keyJSON = "json".data(using: String.Encoding.utf8)!
+                
+                Alamofire.upload(multipartFormData: { (multipartFormData) in
+                    
+                    multipartFormData.append(imgData, withName: "fileupload", fileName: "image", mimeType: "image/jpg")
+                    
+                    multipartFormData.append(keyData, withName: "key")
+                    multipartFormData.append(keyJSON, withName: "format")
+                    
+                    
+                }, to: url, encodingCompletion: { (encodingResult) in
+                    
+                    switch encodingResult {
+                        
+                    case .success(request: let upload, streamingFromDisk: _, streamFileURL: _):
+                        upload.responseJSON(completionHandler: { (response) in
+                            
+                            
+                            if let info = response.result.value as? Dictionary<String, Any> {
+                                
+                                if let links = info["links"] as? Dictionary<String, Any> {
+                                    
+                                    if let imgLink = links["image_link"] as? String {
+                                        
+                                        print("LINK: \(imgLink)")
+                                        
+                                    }
+                                    
+                                }
+                                
+                            }
+                            
+                        })
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                    
+                })
+                
+            }
+            
+        }
         
     }
     

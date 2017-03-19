@@ -18,6 +18,7 @@ class DataService {
     private var _REF_BASE = BASE_URL
     private var _REF_POSTS = BASE_URL.child("posts")
     private var _REF_USERS = BASE_URL.child("users")
+    private var _REF_IMAGES = URL_STORAGE.child("images")
     
     var REF_BASE: FIRDatabaseReference {
         
@@ -41,6 +42,12 @@ class DataService {
         let uid = UserDefaults.standard.value(forKey: KEY_UID) as! String
         let user = BASE_URL.child("users").child(uid)
         return user
+        
+    }
+    
+    var REF_IMAGES: FIRStorageReference {
+        
+        return _REF_IMAGES
         
     }
     
