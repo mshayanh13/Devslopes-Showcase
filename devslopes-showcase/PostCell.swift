@@ -13,6 +13,7 @@ import Firebase
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var showcaseImage: MaterialImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLabel: UILabel!
@@ -39,17 +40,41 @@ class PostCell: UITableViewCell {
         showcaseImage.clipsToBounds = true
     }
     
-    func configureCell(post: Post, img: UIImage?) {
+    func configureCell(post: Post, showcaseImg: UIImage?, profileImg: UIImage?) {
         
         self.post = post
         likeRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         self.descriptionText.text = post.postDescription
         self.likesLabel.text = "\(post.likes)"
+        self.usernameLabel.text = post.username
+        
+        if post.profileImageUrl != nil {
+            
+            if profileImg != nil {
+                self.profileImage.image = profileImg
+            } else {
+                
+                Alamofire.request(post.profileImageUrl!).validate(contentType: ["image/*"]).responseData(completionHandler: { (response) in
+                    
+                    if response.error == nil {
+                        
+                        let img = UIImage(data: response.data!)!
+                        self.profileImage.image = img
+                        FeedVC.imageCache.setObject(img, forKey: self.post.profileImageUrl! as AnyObject)
+                    } else {
+                        
+                        print(response.error.debugDescription)
+                        
+                    }
+                    
+                })
+            }
+        }
         
         if post.imageUrl != nil {
             
-            if img != nil {
-                self.showcaseImage.image = img
+            if showcaseImg != nil {
+                self.showcaseImage.image = showcaseImg
             } else {
                 
                 request = Alamofire.request(post.imageUrl!).validate(contentType: ["image/*"]).responseData(completionHandler: { (response) in

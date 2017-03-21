@@ -15,7 +15,9 @@ class Post {
     private var _imageUrl: String?
     private var _likes: Int!
     private var _username: String!
+    private var _profileImageUrl: String?
     private var _postKey: String!
+    private var _userId: String!
     private var _postRef: FIRDatabaseReference!
     
     var postDescription: String {
@@ -37,8 +39,16 @@ class Post {
     }
     
     var username: String {
-        
+        if _username == nil {
+            return ""
+        }
         return _username
+        
+    }
+    
+    var profileImageUrl: String? {
+        
+        return _profileImageUrl
         
     }
     
@@ -48,11 +58,9 @@ class Post {
         
     }
     
-    init(description: String, imageUrl: String?, username: String) {
+    var userId: String {
         
-        self._postDescription = description
-        self._imageUrl = imageUrl
-        self._username = username
+        return _userId
         
     }
     
@@ -78,7 +86,24 @@ class Post {
             
         }
         
+        if let userId = dictionary["userId"] as? String {
+            
+            self._userId = userId
+            
+            
+        }
+        
         self._postRef = DataService.ds.REF_POSTS.child(self._postKey)
+        
+    }
+    
+    func userDataReceived(dict: Dictionary<String, Any>) {
+        
+        var dictionary = dict
+        dictionary["uid"] = userId
+        let postUser = User(dictionary: dictionary)
+        self._username = postUser.username
+        self._profileImageUrl = postUser.profileImage
         
     }
     

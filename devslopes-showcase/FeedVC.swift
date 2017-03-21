@@ -11,21 +11,22 @@ import Firebase
 import Alamofire
 
 class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    let cameraImage = UIImage(named: "camera")
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postField: MaterialTextField!
     @IBOutlet weak var imageSelectorImage: UIImageView!
     
+    let cameraImage = UIImage(named: "camera")
     var posts = [Post]()
-    
     var imagePicker: UIImagePickerController!
-    
+    var currentUser: User!
     static var imageCache = NSCache<AnyObject, AnyObject>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.hidesBackButton = true
         
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -50,6 +51,18 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
                         
                         let key = snap.key
                         let post = Post(postKey: key, dictionary: postDict)
+                        
+                        DataService.ds.REF_USERS.child(post.userId).observeSingleEvent(of: .value, with: { (snapshot) in
+                            
+                            if let dict = snapshot.value as? Dictionary<String, Any> {
+                                
+                                post.userDataReceived(dict: dict)
+                                self.tableView.reloadData()
+                            }
+                            
+                        })
+
+                        
                         self.posts.append(post)
                         
                     }
@@ -78,15 +91,22 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             cell.request?.cancel()
-            var img: UIImage?
+            var showcaseImg: UIImage?
+            var profileImg: UIImage?
             
             if let url = post.imageUrl {
                 
-                img = FeedVC.imageCache.object(forKey: url as AnyObject) as? UIImage
+                showcaseImg = FeedVC.imageCache.object(forKey: url as AnyObject) as? UIImage
                 
             }
             
-            cell.configureCell(post: post, img: img)
+            if let url = post.profileImageUrl {
+                
+                profileImg = FeedVC.imageCache.object(forKey: url as AnyObject) as? UIImage
+                
+            }
+            
+            cell.configureCell(post: post, showcaseImg: showcaseImg, profileImg: profileImg)
             return cell
             
         } else {
@@ -196,7 +216,7 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
     
     func postToFirebase(imgUrl: String?) {
         
-        var post: Dictionary<String, Any> = ["description": postField.text!, "likes" : 0]
+        var post: Dictionary<String, Any> = ["userId": currentUser.uid, "description": postField.text!, "likes" : 0]
         
         if let imgUrl = imgUrl {
             
@@ -204,11 +224,27 @@ class FeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIIm
             
         }
         
+        /*if let profileImageUrl = currentUser.profileImage {
+            
+            post["profileImageUrl"] = profileImageUrl
+            
+        }*/
+        
         let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
         firebasePost.setValue(post)
+        
+        //currentUser.addPostReference(postKey: firebasePost.key)
+        DataService.ds.REF_USER_CURRENT.child("post").child(firebasePost.key).setValue(true)
+        
         resetPostField()
         
         tableView.reloadData()
+        
+    }
+    
+    @IBAction func profileButtonTapped(sender: UIBarButtonItem) {
+        
+        _ = self.navigationController?.popViewController(animated: true)
         
     }
     

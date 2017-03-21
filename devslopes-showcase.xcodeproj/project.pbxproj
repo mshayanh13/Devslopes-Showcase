@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		108D6D861E80758D00A63B97 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D6D851E80758D00A63B97 /* User.swift */; };
+		108D6D891E80762800A63B97 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D6D881E80762800A63B97 /* ProfileVC.swift */; };
 		10C2B0E31E73AB3C000CF39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B0E21E73AB3C000CF39F /* AppDelegate.swift */; };
 		10C2B0E51E73AB3C000CF39F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C2B0E41E73AB3C000CF39F /* ViewController.swift */; };
 		10C2B0E81E73AB3C000CF39F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C2B0E61E73AB3C000CF39F /* Main.storyboard */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		108D6D851E80758D00A63B97 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		108D6D881E80762800A63B97 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		10C2B0DF1E73AB3C000CF39F /* devslopes-showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "devslopes-showcase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C2B0E21E73AB3C000CF39F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C2B0E41E73AB3C000CF39F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				10C2B0E41E73AB3C000CF39F /* ViewController.swift */,
 				10C2B1221E7A38CB000CF39F /* FeedVC.swift */,
+				108D6D881E80762800A63B97 /* ProfileVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				10C2B14A1E7B327C000CF39F /* Post.swift */,
+				108D6D851E80758D00A63B97 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 				10C2B1231E7A38CB000CF39F /* FeedVC.swift in Sources */,
 				10C2B1251E7A395F000CF39F /* PostCell.swift in Sources */,
 				10C2B0E31E73AB3C000CF39F /* AppDelegate.swift in Sources */,
+				108D6D891E80762800A63B97 /* ProfileVC.swift in Sources */,
+				108D6D861E80758D00A63B97 /* User.swift in Sources */,
 				10C2B1041E73ADA6000CF39F /* Constants.swift in Sources */,
 				10C2B1061E73C48B000CF39F /* MaterialButton.swift in Sources */,
 				10C2B14B1E7B327C000CF39F /* Post.swift in Sources */,

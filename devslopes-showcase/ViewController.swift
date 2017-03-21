@@ -23,17 +23,12 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
+        if let _ = UserDefaults.standard.value(forKey: KEY_UID) as? String {
             
             self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
             
         }
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func fbButtonPressed(sender: UIButton) {
@@ -62,7 +57,7 @@ class ViewController: UIViewController {
                             
                             print("Logged in. \(user)")
                             
-                            let userData = ["provider": credential.provider, "blah": "test"]
+                            let userData = ["provider": credential.provider, "username": ""]
                             DataService.ds.createFirebaseUser(uid: user.uid, user: userData)
                             
                             UserDefaults.standard.set(user.uid, forKey: KEY_UID)
@@ -111,9 +106,10 @@ class ViewController: UIViewController {
                                 
                                 UserDefaults.standard.set(user.uid, forKey: KEY_UID)
                                 
-                                let userData = ["provider": "email", "blah":"emailtest"]
+                                let userData = ["provider": "email", "username":""]
                                 DataService.ds.createFirebaseUser(uid: user.uid, user: userData)
                                 
+                                self.resetTextFields()
                                 self.performSegue(withIdentifier: SEGUE_LOGGED_IN, sender: nil)
                                 
                             }
@@ -149,6 +145,11 @@ class ViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    func resetTextFields() {
+        emailField.text = ""
+        passwordField.text = ""
     }
 
 }
